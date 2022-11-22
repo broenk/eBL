@@ -78,62 +78,8 @@ list(
   tar_target(model9, model_9(data)),#Lag 9
   tar_target(model10, model_10(data)),#Lag 10
   tar_target(model11, model_11(data)),#Lags 0-10 included
-  tar_target(figureA9, make_figureA9(model0,model1,model2, model3, model4, model5, model6, model7, model8, model9, model10)),
-  tar_target(figureA10, make_figureA10(model11)),#Lags 0-10 included
-  
- 
-# tar_target(yearly, yearly_bimoran(data)),
-#  tar_target(total, total_bimoran(data)),
-#  tar_target(moran, single_moran(data))
-
-tar_target(pflow, list(pf00=raster("Data/PfPR_LCI_Global_admin0_2000.tif"),
-                    pf01=raster("Data/PfPR_LCI_Global_admin0_2001.tif"),
-                    pf02=raster("Data/PfPR_LCI_Global_admin0_2002.tif"),
-                    pf03=raster("Data/PfPR_LCI_Global_admin0_2003.tif"),
-                    pf04=raster("Data/PfPR_LCI_Global_admin0_2004.tif"),
-                    pf05=raster("Data/PfPR_LCI_Global_admin0_2005.tif"),
-                    pf06=raster("Data/PfPR_LCI_Global_admin0_2006.tif"),
-                    pf07=raster("Data/PfPR_LCI_Global_admin0_2007.tif"),
-                    pf08=raster("Data/PfPR_LCI_Global_admin0_2008.tif"),
-                    pf09=raster("Data/PfPR_LCI_Global_admin0_2009.tif"),
-                    pf10=raster("Data/PfPR_LCI_Global_admin0_2010.tif"),
-                    pf11=raster("Data/PfPR_LCI_Global_admin0_2011.tif"),
-                    pf12=raster("Data/PfPR_LCI_Global_admin0_2012.tif"),
-                    pf13=raster("Data/PfPR_LCI_Global_admin0_2013.tif"),
-                    pf14=raster("Data/PfPR_LCI_Global_admin0_2014.tif"),
-                    pf15=raster("Data/PfPR_LCI_Global_admin0_2015.tif"),
-                    pf16=raster("Data/PfPR_LCI_Global_admin0_2016.tif"),
-                    pf17=raster("Data/PfPR_LCI_Global_admin0_2017.tif"))),
-tar_target(Kenyalow, load_Kenya(pflow, cases)),
-tar_target(Tanzanialow, load_tanzania(pflow, cases)),
-tar_target(Ugandalow, load_Uganda(pflow, cases)),
-tar_target(alllow, load_all_countries(Kenyalow, Tanzanialow, Ugandalow)),
-tar_target(datalow, make_lag_data(alllow)),
+  tar_target(figureA9, make_figureA9(model0,model1,model2, model3, model4, model5, model6, model7, model8, model9, model10))
 
 
-tar_target(model12low, model_12(datalow)), #Cumulative malaria variable
-tar_target(pfhigh, list(pf00=raster("Data/PfPR_UCI_Global_admin0_2000.tif"),
-                       pf01=raster("Data/PfPR_UCI_Global_admin0_2001.tif"),
-                       pf02=raster("Data/PfPR_UCI_Global_admin0_2002.tif"),
-                       pf03=raster("Data/PfPR_UCI_Global_admin0_2003.tif"),
-                       pf04=raster("Data/PfPR_UCI_Global_admin0_2004.tif"),
-                       pf05=raster("Data/PfPR_UCI_Global_admin0_2005.tif"),
-                       pf06=raster("Data/PfPR_UCI_Global_admin0_2006.tif"),
-                       pf07=raster("Data/PfPR_UCI_Global_admin0_2007.tif"),
-                       pf08=raster("Data/PfPR_UCI_Global_admin0_2008.tif"),
-                       pf09=raster("Data/PfPR_UCI_Global_admin0_2009.tif"),
-                       pf10=raster("Data/PfPR_UCI_Global_admin0_2010.tif"),
-                       pf11=raster("Data/PfPR_UCI_Global_admin0_2011.tif"),
-                       pf12=raster("Data/PfPR_UCI_Global_admin0_2012.tif"),
-                       pf13=raster("Data/PfPR_UCI_Global_admin0_2013.tif"),
-                       pf14=raster("Data/PfPR_UCI_Global_admin0_2014.tif"),
-                       pf15=raster("Data/PfPR_UCI_Global_admin0_2015.tif"),
-                       pf16=raster("Data/PfPR_UCI_Global_admin0_2016.tif"),
-                       pf17=raster("Data/PfPR_UCI_Global_admin0_2017.tif"))),
-tar_target(Kenyahigh, load_Kenya(pfhigh, cases)),
-tar_target(Tanzaniahigh, load_tanzania(pfhigh, cases)),
-tar_target(Ugandahigh, load_Uganda(pfhigh, cases)),
-tar_target(allhigh, load_all_countries(Kenyahigh, Tanzaniahigh, Ugandahigh)),
-tar_target(datahigh, make_lag_data(allhigh)),
-tar_target(model12high, model_12(datahigh))
 )
+
