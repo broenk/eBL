@@ -1,24 +1,30 @@
 Packages <- c("dplyr", "ggplot2", "rstan", "readr", "tidyverse", "rgeoda","raster", "targets", "sf","spdep", "mdthemes", "brms", "lubridate", "ggtext")
 lapply(Packages, library, character.only = TRUE)
+setwd("/Users/kellybroen/Documents/GitHub/Aim1")
+
 ###Figure 1
 figure1 <- tar_read(figure1)
-ggsave("images/figure1.jpg", height = 8, width = 8)
+
+ggsave("images/figure1.jpg", dpi = 1000)
+
 
 ###Figure 2
 tar_make(figure2)
 figure2 <- tar_read(figure2)
-ggsave("images/figure2A.jpg",figure2[[1]],  height = 6, width = 6)
-ggsave("images/figure2B.jpg",figure2[[2]],  height = 6, width = 6)
-ggsave("images/figure2C.jpg",figure2[[3]],  height = 6, width = 6)
+ggsave("images/figure2A.jpg",figure2[[1]],  height = 6, width = 6, dpi = 1000)
+ggsave("images/figure2B.jpg",figure2[[2]],  height = 6, width = 6, dpi = 1000)
+ggsave("images/figure2C.jpg",figure2[[3]],  height = 6, width = 6, dpi = 1000)
 
 ##Figure 3
 tar_make(figure3)
 figure3 <- tar_read(figure3)
-ggsave("images/figure3.jpg",figure3,  height = 10, width = 8)
+ggsave("images/figure3.jpg",figure3,  height = 10, width = 8,dpi = 1000)
 
 ###Table 1 statistics
 
 ###Cases by country
+data <- tar_read(data)
+
 tapply(data$cases, data$country, sum)
 p <- tapply(data$pop, data$country, sum)
 (tapply(data$cases, data$country, sum)/p)*1000000
@@ -109,16 +115,12 @@ figureA8 <- tar_read(figureA8)
 ggsave("images/figureA8.jpg",figureA8,  height = 6, width = 8)
 
 
-###Figure A8
+###Figure A9
 tar_make(figureA9)
 figureA9 <- tar_read(figureA9)
 figureA9
 ggsave("images/figureA9.jpg",figureA9,  height = 6, width = 8)
 
 
-tar_make(figureA10)
-figureA10 <- tar_read(figureA10)
-figureA10
-ggsave("images/figureA10.jpg",figureA10,  height = 6, width = 8)
 
 
